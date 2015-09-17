@@ -5,7 +5,7 @@
  *
  * Find the sum of all the primes below two million.
  *
- * Expect this problem to be solved SLOWLY.
+ * Note: Expect this solution to run SLOWLY.
  *
  */
 
