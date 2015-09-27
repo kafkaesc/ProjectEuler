@@ -1,14 +1,17 @@
 /**
- * Created by jared on 9/17/15.
+ * Created by Jared Hettinger on 9/17/15.
  *
- * In Project Euler problem's I find myself repeatedly
- * hardcoding a number set into an array. Hopefully this
- * class will automate reading a text file and making an
- * array out of it.
+ * This class has several functions designed to take
+ * a text file and output a usable array for other Java
+ * classes.
  *
- * CURRENTLY: The ArrayMaker should produce a compilable
- * 2D array from a properly formatted file. Will work on
- * decomposition for 1D arrays.
+ * int1D will return a one-dimensional array of the ints in the file
+ *
+ * int2D will return a two-dimensional array of the ints in the file
+ *
+ * string2D will return a String formatted so that it can be copy
+ * and pasted into your Java code and compile, if case you're looking
+ * to hardcode the data
  *
  */
 
@@ -19,12 +22,56 @@ import java.util.Scanner;
 
 public class ArrayMaker {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        File f = new File("src/ArrayMakerInput.txt");
+    public static int[] int1D(File f) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+        ArrayList<Integer> arr = new ArrayList<Integer> ();
+
+        while(sc.hasNextInt())
+            arr.add(sc.nextInt());
+        sc.close();
+
+        int[] output = new int[arr.size()];
+        for (int i = 0; i < output.length; i++)
+            output[i] = arr.get(i);
+        return output;
+    }
+
+    public static int[][] int2D(File f) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+
+        // first pass to find the dimensions for the array, i x j
+        int iCount = 0;
+        int jCount = 0;
+        while (sc.hasNext()) {
+            Scanner sc2 = new Scanner(sc.nextLine());
+            int tempj = 0;
+            while (sc2.hasNextInt()) {
+                tempj++;
+                if (tempj > jCount)
+                    jCount = tempj;
+                sc2.nextInt();
+            }
+            sc2.close();
+            iCount++;
+        }
+        sc.close();
+        int[][] output = new int[iCount][jCount];
+
+        // second pass is to load ints into the array
+        sc = new Scanner(f);
+        for (int i = 0; i < iCount; i++) {
+            for (int j = 0; j < jCount; j++) {
+                output[i][j] = sc.nextInt();
+            }
+        }
+        sc.close();
+        return output;
+    }
+
+    public static String string2D(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         Scanner sc2;
         StringBuilder sb = new StringBuilder();
-
 
         sb.append("{ ");
         while (sc.hasNext()) {
@@ -40,8 +87,6 @@ public class ArrayMaker {
 
         sc.close();
 
-        System.out.print(sb.toString());
-
+        return sb.toString();
     }
-
 }
