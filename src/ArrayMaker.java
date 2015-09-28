@@ -9,7 +9,7 @@
  *
  * int2D will return a two-dimensional array of the ints in the file
  *
- * string2D will return a String formatted so that it can be copy
+ * hardcode2D will return a String formatted so that it can be copy
  * and pasted into your Java code and compile, if case you're looking
  * to hardcode the data
  *
@@ -24,15 +24,15 @@ public class ArrayMaker {
 
     public static int[] int1D(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
-        ArrayList<Integer> arr = new ArrayList<Integer> ();
+        ArrayList<Integer> al = new ArrayList<Integer> ();
 
         while(sc.hasNextInt())
-            arr.add(sc.nextInt());
+            al.add(sc.nextInt());
         sc.close();
 
-        int[] output = new int[arr.size()];
+        int[] output = new int[al.size()];
         for (int i = 0; i < output.length; i++)
-            output[i] = arr.get(i);
+            output[i] = al.get(i);
         return output;
     }
 
@@ -68,7 +68,20 @@ public class ArrayMaker {
         return output;
     }
 
-    public static String string2D(File f) throws FileNotFoundException {
+    public static String int1DHardcode(File f) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("{ ");
+        while(sc.hasNext())
+            sb.append(sc.next() + ", ");
+        sb.delete(sb.length() - 2, sb.length());
+        sb.append("}");
+
+        return sb.toString();
+    }
+
+    public static String int2DHardcode(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         Scanner sc2;
         StringBuilder sb = new StringBuilder();
@@ -84,8 +97,35 @@ public class ArrayMaker {
         }
         sb.delete(sb.length() - 2, sb.length());
         sb.append(" };");
-
         sc.close();
+
+        return sb.toString();
+    }
+
+    public static String[]  string1D(File f) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+        ArrayList<String> al = new ArrayList<String> ();
+
+        while(sc.hasNext()) {
+            al.add(sc.next());
+        }
+        sc.close();
+
+        String[] output = new String[al.size()];
+        for(int i = 0; i < al.size(); i++)
+            output[i] = al.get(i);
+        return output;
+    }
+
+    public static String string1DHardcode(File f) throws FileNotFoundException {
+        Scanner sc = new Scanner(f);
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("{ \"");
+        while(sc.hasNext())
+            sb.append(sc.next() + "\", \"");
+        sb.delete(sb.length() - 2, sb.length());
+        sb.append("}");
 
         return sb.toString();
     }
