@@ -3,6 +3,9 @@
  *
  * Project Euler, problem #13
  *
+ * Work out the first ten digits of the sum of
+ * the one-hundred 50-digit numbers in E13input.txt.
+ *
  */
 
 import java.io.File;
