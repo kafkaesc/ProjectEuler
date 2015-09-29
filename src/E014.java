@@ -23,7 +23,7 @@
  */
 
 public class E014 {
-    private static final int CACHE_SIZE = 500;
+    private static final int CACHE_SIZE = 4096;
     private static int[] cache = new int[CACHE_SIZE];
 
     public static void main(String[] args) {
