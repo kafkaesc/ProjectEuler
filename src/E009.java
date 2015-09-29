@@ -14,7 +14,7 @@
  * Find the product abc.
  *
  */
-public class E9 {
+public class E009 {
 
     // For arrays size 3: [0] => a; [1] => b; [2] => c
 

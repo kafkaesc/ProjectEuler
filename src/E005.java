@@ -11,7 +11,7 @@
  *
  */
 
-public class E5 {
+public class E005 {
 
     public static void main(String[] args) {
         int i = 20;

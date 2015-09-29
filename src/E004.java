@@ -11,7 +11,7 @@
  *
  */
 
-public class E4 {
+public class E004 {
 
     public static void main(String[] args) {
         // Factors not necessary for Project Euler, but I was curious.

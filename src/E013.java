@@ -4,7 +4,7 @@
  * Project Euler, problem #13
  *
  * Work out the first ten digits of the sum of
- * the one-hundred 50-digit numbers in E13input.txt.
+ * the one-hundred 50-digit numbers in E013input.txt.
  *
  */
 
@@ -12,10 +12,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigInteger;
 
-public class E13 {
+public class E013 {
 
     private static String[] input;
-    private static File E13input = new File("src/E13input.txt");;
+    private static File E13input = new File("src/E013input.txt");;
 
     public static void main(String[] args) {
         try {
@@ -32,7 +32,7 @@ public class E13 {
             System.out.println(answer);
 
         } catch (FileNotFoundException fne) {
-            System.out.println("Check the location of file E13input.txt");
+            System.out.println("Check the location of file E013input.txt");
         }
     }
 

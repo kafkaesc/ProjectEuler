@@ -11,7 +11,7 @@
  *
  */
 
-public class E7 {
+public class E007 {
 
     // Optimizing is perhaps unnecessary for a puzzle, but who's afraid of a cache?
     // Primes from https://primes.utm.edu/lists/small/1000.txt,
@@ -53,7 +53,7 @@ public class E7 {
     }
 
     // returns whether or not the given number is prime
-    // re-used form E3
+    // re-used form E003
     static private boolean checkPrimality(long n) {
         // first, check if even
         if (n % 2 == 0)

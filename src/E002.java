@@ -13,7 +13,7 @@
  *
  */
 
-public class E2 {
+public class E002 {
 
     public static void main(String[] args) {
         int fib_0 = 1;

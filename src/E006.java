@@ -18,7 +18,7 @@
  *
  */
 
-public class E6 {
+public class E006 {
 
     public static void main(String[] args) {
         int answer = squareOfSums(100) - sumOfSquares(100);

@@ -1,6 +1,8 @@
 /**
  * Created by jared on 9/17/15.
  *
+ * Project Euler, problem #10
+ *
  * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
  *
  * Find the sum of all the primes below two million.
@@ -9,7 +11,7 @@
  *
  */
 
-public class E10 {
+public class E010 {
 
     public static void main(String[] args) {
         long rollingSum = 2L;
@@ -23,7 +25,7 @@ public class E10 {
     }
 
     // returns whether or not the given number is prime
-    // re-used form E3
+    // re-used form E003
     static private boolean checkPrimality(long n) {
         // first, check if even
         if (n % 2 == 0)

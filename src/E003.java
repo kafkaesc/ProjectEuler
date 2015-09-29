@@ -9,7 +9,7 @@
  *
  */
 
-public class E3 {
+public class E003 {
 
     public static void main(String[] args) {
         long given = 600851475143L;
@@ -18,6 +18,7 @@ public class E3 {
         System.out.println(answer);
     }
 
+    // returns the largest prime factor of n
     static private long findHighestPrimeFactor(long n) {
         // reduce range to values capable of being factors
         long divisor = (long)Math.sqrt(n);

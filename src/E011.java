@@ -38,9 +38,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class E11 {
+public class E011 {
 
-    private static File f = new File("src/E11input.txt");
+    private static File f = new File("src/E011input.txt");
     private static int[][] globalGrid;
 
     public static void main(String[] args) throws FileNotFoundException {

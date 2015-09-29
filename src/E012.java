@@ -27,7 +27,7 @@
  *
  */
 
-public class E12 {
+public class E012 {
 
     private static int ongoingSum = 0;
     private static int rowNumber = 1;
