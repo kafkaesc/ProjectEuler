@@ -5,13 +5,9 @@
  * a text file and output a usable array for other Java
  * classes.
  *
- * int1D will return a one-dimensional array of the ints in the file
- *
- * int2D will return a two-dimensional array of the ints in the file
- *
- * hardcode2D will return a String formatted so that it can be copy
- * and pasted into your Java code and compile, if case you're looking
- * to hardcode the data
+ * This class was inspired by the frequent need to use
+ * plaintext numerical data in puzzles from
+ * Project Euler. (projecteuler.net)
  *
  */
 
@@ -22,6 +18,7 @@ import java.util.Scanner;
 
 public class ArrayMaker {
 
+    // Returns a one-dimensional array of the ints in the text file.
     public static int[] int1D(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         ArrayList<Integer> al = new ArrayList<Integer> ();
@@ -36,6 +33,11 @@ public class ArrayMaker {
         return output;
     }
 
+    // Returns a two-dimensional array of the ints in a text file.
+    // Lines will be counted to calculate the amount of rows. The amount of
+    // ints on each line will be counted on each line will be counted. The
+    // largest count of ints will be used to set columns, but the function
+    // is not designed for jagged arrays.
     public static int[][] int2D(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
 
@@ -59,11 +61,9 @@ public class ArrayMaker {
 
         // second pass is to load ints into the array
         sc = new Scanner(f);
-        for (int i = 0; i < iCount; i++) {
-            for (int j = 0; j < jCount; j++) {
+        for (int i = 0; i < iCount; i++)
+            for (int j = 0; j < jCount; j++)
                 output[i][j] = sc.nextInt();
-            }
-        }
         sc.close();
         return output;
     }
@@ -81,6 +81,9 @@ public class ArrayMaker {
         return sb.toString();
     }
 
+    // Returns a String that can be copy and pasted into your code in
+    // order to hardcode the data into a class. Each line will be
+    // interpreted as a new row.
     public static String int2DHardcode(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         Scanner sc2;
@@ -102,13 +105,14 @@ public class ArrayMaker {
         return sb.toString();
     }
 
-    public static String[]  string1D(File f) throws FileNotFoundException {
+    // Returns a one-dimensional array of Strings from the text file.
+    // Standard delimiters are used by the Scanner object.
+    public static String[] string1D(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         ArrayList<String> al = new ArrayList<String> ();
 
-        while(sc.hasNext()) {
+        while(sc.hasNext())
             al.add(sc.next());
-        }
         sc.close();
 
         String[] output = new String[al.size()];
@@ -117,6 +121,8 @@ public class ArrayMaker {
         return output;
     }
 
+    // Returns a String that can be copy and pasted into your code in
+    // order to hardcode the data into a class.
     public static String string1DHardcode(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
         StringBuilder sb = new StringBuilder();
