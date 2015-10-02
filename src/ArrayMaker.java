@@ -36,8 +36,8 @@ public class ArrayMaker {
     // Returns a two-dimensional array of the ints in a text file.
     // Lines will be counted to calculate the amount of rows. The amount of
     // ints on each line will be counted on each line will be counted. The
-    // largest count of ints will be used to set columns, but the function
-    // is not designed for jagged arrays.
+    // largest count of ints will be used to set columns. The function SHOULD
+    // work for jagged arrays.
     public static int[][] int2D(File f) throws FileNotFoundException {
         Scanner sc = new Scanner(f);
 
@@ -61,9 +61,14 @@ public class ArrayMaker {
 
         // second pass is to load ints into the array
         sc = new Scanner(f);
-        for (int i = 0; i < iCount; i++)
-            for (int j = 0; j < jCount; j++)
-                output[i][j] = sc.nextInt();
+        for (int i = 0; i < iCount; i++) {
+            int j = 0;
+            Scanner sc2 = new Scanner(sc.nextLine());
+            while (sc2.hasNext()) {
+                output[i][j] = sc2.nextInt();
+                j++;
+            }
+        }
         sc.close();
         return output;
     }
