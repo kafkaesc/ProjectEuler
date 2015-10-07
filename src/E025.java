@@ -57,8 +57,8 @@ public class E025 {
             return fibCache.get(index);
 
         int it = largestIndex;
-        BigInteger fib_a = fibCache.get(it - 2); //new BigInteger(bigHelper(fibCache[CACHE_SIZE - 2]));
-        BigInteger fib_b = fibCache.get(it - 1); //new BigInteger(bigHelper(fibCache[CACHE_SIZE - 1]));
+        BigInteger fib_a = fibCache.get(it - 2);
+        BigInteger fib_b = fibCache.get(it - 1);
         BigInteger fibonacciValue = new BigInteger(fib_a.add(fib_b).toString());
 
         while(it <= index) {
