@@ -14,28 +14,10 @@
 public class E010 {
 
     public static void main(String[] args) {
-        long rollingSum = 2L;
-        for (long i = 3L; i < 2000000L; i += 2) {
-            if (checkPrimality(i)) {
-                //System.out.println(i);
-                rollingSum += i;
-            }
-        }
-        System.out.println(rollingSum);
-    }
-
-    // returns whether or not the given number is prime
-    // re-used form E003
-    static private boolean checkPrimality(long n) {
-        // first, check if even
-        if (n % 2 == 0)
-            return false;
-
-        // now, check against odd numbers
-        for (int i = 3; i < n / 2; i += 2)
-            if (n % i == 0)
-                return false;
-
-        return true;
+        int primeList[] = SieveOfEratosthenes.findPrimes(2000000);
+        long sum = 0;
+        for(int i = 0; i < primeList.length; i++)
+            sum += primeList[i];
+        System.out.println(sum);
     }
 }
